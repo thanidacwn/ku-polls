@@ -3,7 +3,7 @@ Web Application for survey in Kasetsart University.
 
 ## Project Documents
 
-All project documents are in the [Project Wik](https://github.com/thanidacwn/ku-polls/wiki)
+All project documents are in the [Project Wiki](https://github.com/thanidacwn/ku-polls/wiki)
 
 * [Vision Statement](https://github.com/thanidacwn/ku-polls/wiki/Vision-Statement)
 * [Requirements](https://github.com/thanidacwn/ku-polls/wiki/Requirements)
