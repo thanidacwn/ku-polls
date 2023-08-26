@@ -5,6 +5,7 @@ from django.contrib import admin
 
 
 class Question(models.Model):
+    """ Question model """
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
     
@@ -18,12 +19,13 @@ class Question(models.Model):
         return self.question_text
 
     def was_published_recently(self):
-        """ return pub_date for question """
+        """ return True if the question was published within the last day. """
         now = timezone.now()
         return now >= self.pub_date >= now - datetime.timedelta(days=1)
 
 
 class Choice(models.Model):
+    """ Choice model """
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
     votes = models.IntegerField(default=0)
