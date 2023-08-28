@@ -34,6 +34,28 @@ class DetailView(generic.DetailView):
     def get_queryset(self):
         """ Not! include questions that are not published yet."""
         return Question.objects.filter(pub_date__lte=timezone.now())
+    
+    def get(self, request, *args, **kwargs):
+        """ Overide get method, check if question can be vote.
+
+        Arguments:
+            request {HTTP_REQUEST}
+
+        Returns:
+            httpResponse
+        """
+        error_msg = None
+        # get question or throw error
+        try:
+            question = get_object_or_404(Question, pk=kwargs['pk'])
+        except Http404:
+            error_msg = '404'
+        # check if question is expired, then show error message and redirect to index page.
+        if not question.can_vote() or error_msg == '404':
+            messages.error(request, 'This question not allow to vote for now.')
+            return HttpResponseRedirect(reverse('polls:index'))
+        # else
+        return super().get(request, *args, **kwargs)
 
     def get(self, request, *args, **kwargs):
         """ Overide get method, check if question can be vote.
