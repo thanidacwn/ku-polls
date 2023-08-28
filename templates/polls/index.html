@@ -2,12 +2,18 @@
 
 <link rel="stylesheet" href="{% static 'polls/style.css' %}">
 
+<h1>Polls List</h1>
+
 {% if lastest_question_list %}
     <ul>
         {% for question in lastest_question_list %}
-            <li>
+        <list>{{forloop.counter0|add:'1'}}
+            {% if question.can_vote %}
+                {% comment %} polls/templates/polls/index.html {% endcomment %}
                 <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a> 
-            </li>
+                <a href="{% url 'polls:results' question.id %}"><button type="button">{{"results"}}</button></a>
+{% endif %}
+        </list><br>
         {% endfor %}
     </ul>
 

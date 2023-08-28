@@ -16,4 +16,5 @@
             {% endfor %}
     </fieldset>
     <input type="submit" value='Vote'>
+    <a href={% url 'polls:index' %}><button type="button">{{"Back to polls list"}}</button></a>
 </form>
