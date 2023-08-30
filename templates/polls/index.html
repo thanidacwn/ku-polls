@@ -83,3 +83,12 @@
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
+
+{% if user.is_authenticated %}&nbsp;&nbsp;&nbsp;
+    <label>{{"login as "}}</label><user>{{user.username}}</user> 
+    <a href="{% url 'logout' %}"><button type="button">Log Out</button></a>
+{% else %}
+    <p>If you didn't login, please login for voting. 
+    <a href="{% url 'login' %}"><button type="button">Log in?</button></a>
+    </p>
+{% endif %}
