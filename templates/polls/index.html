@@ -88,7 +88,8 @@
     <label>{{"login as "}}</label><user>{{user.username}}</user> 
     <a href="{% url 'logout' %}"><button type="button">Log Out</button></a>
 {% else %}
-    <p>If you didn't login, please login for voting. 
+    <p>If you didn't login, please login or signup for voting. 
     <a href="{% url 'login' %}"><button type="button">Log in?</button></a>
+    <a href="{% url 'signup' %}"><button type="button">Signup?</button></a>
     </p>
 {% endif %}
