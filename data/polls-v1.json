@@ -160,8 +160,25 @@
   "pk": 16,
   "fields": {
     "question": 3,
-    "choice_text": "> 6 times/week",
-    "votes": 1
+    "choice_text": "> 6 times/week"
+  }
+},
+{
+  "model": "polls.vote",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "choice": 1,
+    "question": 1
+  }
+},
+{
+  "model": "polls.vote",
+  "pk": 2,
+  "fields": {
+    "user": 1,
+    "choice": 7,
+    "question": 2
   }
 }
 ]
