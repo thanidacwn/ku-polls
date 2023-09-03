@@ -9,3 +9,4 @@ All project documents are in the [Project Wiki](https://github.com/thanidacwn/ku
 * [Requirements](https://github.com/thanidacwn/ku-polls/wiki/Requirements)
 * [Project Plan](https://github.com/thanidacwn/ku-polls/wiki/Development-plan)
 * [Iteration 1 Plan](https://github.com/thanidacwn/ku-polls/wiki/Iteration-1-Plan) and [Task Board](https://github.com/users/thanidacwn/projects/7)
+* [Iteration 2 Plan](https://github.com/thanidacwn/ku-polls/wiki/Iteration-2-Plan)

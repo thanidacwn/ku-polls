@@ -5,7 +5,7 @@
 <h1>{{ question.question_text }}</h1>
 <ul>
     {% for choice in question.choice_set.all %}
-        <list>&nbsp;&nbsp;{{forloop.counter0|add:"1"}}.&nbsp;&nbsp;{{choice.choice_text}} -- {{choice.votes}} vote{{ choice.votes|pluralize}}</list><br>
+        <list>&nbsp;&nbsp;{{forloop.counter0|add:"1"}}.&nbsp;&nbsp;{{choice.choice_text}} -- {{choice.votes}}</list><br>
     {% endfor %}
 </ul>
 

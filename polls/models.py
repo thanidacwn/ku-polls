@@ -8,7 +8,8 @@ class Question(models.Model):
     """ Question model """
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
-    end_date = models.DateTimeField('date ended', null=True)
+    end_date = models.DateTimeField('date ended', null=True, blank=True)
+    available = models.BooleanField("poll available", default=True)
     
     @admin.display(
         boolean=True,
@@ -26,6 +27,8 @@ class Question(models.Model):
         Returns:
             True if the question was published within the last day. 
         """
+        if not self.available:
+            return False
         now = timezone.now()
         return now >= self.pub_date >= now - datetime.timedelta(days=1)
     
@@ -36,7 +39,7 @@ class Question(models.Model):
         Returns: 
             True if current date is on or after question’s publication date 
         """
-        now = timezone.localtime()
+        now = timezone.now()
         return now >= self.pub_date
     
     def can_vote(self):
