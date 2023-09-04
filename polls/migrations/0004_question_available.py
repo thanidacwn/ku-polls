@@ -13,6 +13,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="question",
             name="available",
-            field=models.BooleanField(default=True, verbose_name="poll available"),
+            field=models.BooleanField(default=True,
+                                      verbose_name="poll available"),
         ),
     ]
