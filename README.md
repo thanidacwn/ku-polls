@@ -1,5 +1,10 @@
-# ku-polls
-Web Application for survey in Kasetsart University.
+# KU Polls: Online Survey Questions 
+
+This application, developed during the  [Individual Software Process](
+https://cpske.github.io/ISP) course at Kasetsart University, expands upon the [Django Tutorial project](https://docs.djangoproject.com/en/4.1/intro/tutorial01/) project to facilitate online polls and surveys while incorporating extra features.
+
+## Install and Run
+to be added.
 
 ## Project Documents
 
