@@ -2,21 +2,84 @@
 
 <link rel="stylesheet" href="{% static 'polls/style.css' %}">
 
+<style>
+    /* Center the content on the page */
+    body {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        background-color: #f5f5f5;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px black solid;
+        background-color: #ffffff;
+    }
+
+    th, td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    th {
+        background-color: gray;
+        color: white;
+    }
+
+    a:hover {
+        background-color: #e4e7eb;
+    }
+
+    button {
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #1e7e34;
+    }
+
+    p {
+        font-size: 18px;
+        margin-top: 20px;
+    }
+</style>
+
 <h1>Polls List</h1>
 
 {% if lastest_question_list %}
-    <ul>
-        {% for question in lastest_question_list %}
-        <list>{{forloop.counter0|add:'1'}}
-            {% if question.can_vote %}
-                {% comment %} polls/templates/polls/index.html {% endcomment %}
-                <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a> 
-                <a href="{% url 'polls:results' question.id %}"><button type="button">{{"results"}}</button></a>
-{% endif %}
-        </list><br>
-        {% endfor %}
-    </ul>
-
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Question</th>
+                <th>Results</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for question in lastest_question_list %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></td>
+                    <td><a href="{% url 'polls:results' question.id %}"><button type="button">Results</button></a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
