@@ -2,18 +2,73 @@
 
 <link rel="stylesheet" href="{% static 'polls/style.css' %}">
 
-<form action="{% url "polls:vote" question.id %}" method=POST>
-{% csrf_token %}
+<style>
+    /* Center the form on the page */
+    form {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    fieldset {
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    input[type="radio"] {
+        margin-right: 10px;
+    }
+
+    button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button[type="submit"] {
+        background-color: #28a745;
+    }
+
+    a.button {
+        text-decoration: none;
+        margin-left: 10px;
+    }
+</style>
+
+<form action="{% url 'polls:vote' question.id %}" method="POST">
+    {% csrf_token %}
+    <h1>{{ question.question_text }}</h1>
+    {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
+    {% endif %}
     <fieldset>
-        <legend><h1>{{ question.question_text }}</h1></legend>
-        {% if error_message %}
-            <p><strong>{{error_message}}</strong></p>
-        {%endif%}
-            {% for choice in question.choice_set.all %}
+        {% for choice in question.choice_set.all %}
+            <label>
                 <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-                <label for="choice{{ forloop.counter }}">{{choice.choice_text}}</label>
-                <br>
-            {% endfor %}
+                {{ choice.choice_text }}
+            </label><br>
+        {% endfor %}
     </fieldset>
-    <input type="submit" value='Vote'>
+    <button type="submit">Vote</button>
+    <a href="{% url 'polls:results' question.id %}"><button type="button">Results</button></a>
+    <a href="{% url 'polls:index' %}" class="button">Back to polls list</a>
 </form>
