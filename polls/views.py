@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.http import HttpResponseRedirect, Http404
 from .models import Question, Choice, Vote
 from django.shortcuts import get_object_or_404
@@ -36,7 +36,7 @@ class DetailView(LoginRequiredMixin, generic.DetailView):
     def get_queryset(self):
         """ Not! include questions that are not published yet."""
         return Question.objects.filter(pub_date__lte=timezone.now())
-    
+
     def get(self, request, *args, **kwargs):
         """ Overide get method, check if question can be vote.
 
@@ -57,7 +57,7 @@ class DetailView(LoginRequiredMixin, generic.DetailView):
         if not question.can_vote() or error_msg == '404':
             messages.error(request, 'This question not allow to vote for now.')
             return HttpResponseRedirect(reverse('polls:index'))
-        #else
+        # else
         try:
             if not user.is_authenticated:
                 raise Vote.DoesNotExist
@@ -68,33 +68,10 @@ class DetailView(LoginRequiredMixin, generic.DetailView):
             return super().get(request, *args, **kwargs)
         # go to detail page
         context = {
-        'question': question,
-        'user_vote': user_vote,
+            'question': question,
+            'user_vote': user_vote,
         }
         return render(request, 'polls/detail.html', context)
-
-    def get(self, request, *args, **kwargs):
-        """ Overide get method, check if question can be vote.
-
-        Arguments:
-            request {HTTP_REQUEST}
-
-        Returns:
-            httpResponse
-        """
-        error_msg = None
-        # get question or throw error
-        try:
-            question = get_object_or_404(Question, pk=kwargs['pk'])
-        except Http404:
-            error_msg = '404'
-        # check if question is expired,
-        # then show error message and redirect to index page.
-        if not question.can_vote() or error_msg == '404':
-            messages.error(request, 'No polls are available.')
-            return HttpResponseRedirect(reverse('polls:index'))
-        # else
-        return super().get(request, *args, **kwargs)
 
 
 class ResultsView(generic.DetailView):
