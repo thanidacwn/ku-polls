@@ -31,29 +31,6 @@ class Question(models.Model):
             return False
         now = timezone.now()
         return now >= self.pub_date >= now - datetime.timedelta(days=1)
-    
-    def is_published(self):
-        """ 
-        Check that question is published or not by pub_date and currently.
-
-        Returns: 
-            True if current date is on or after question’s publication date 
-        """
-        now = timezone.localtime()
-        return now >= self.pub_date
-    
-    def can_vote(self):
-        """
-        Check that voting is during pub_date and end_date, they can vote. 
-
-        Returns:
-            True if voting is allowed for this question
-        """
-        # check end_date is not null
-        if self.end_date:
-            now = timezone.localtime()
-            return self.end_date >= now and self.is_published
-        return self.is_published()
 
     def is_published(self):
         """Check that question is published or not by pub_date and currently.
@@ -91,9 +68,9 @@ class Choice(models.Model):
     def __str__(self) -> str:
         return self.choice_text
     
+
 class Vote(models.Model):
     """ Voting models """
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     choice = models.ForeignKey(Choice, on_delete=models.CASCADE)
     question = models.ForeignKey(Question, on_delete=models.CASCADE, null=True)
-
