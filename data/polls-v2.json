@@ -1,0 +1,164 @@
+[
+    {
+        "model": "polls.question",
+        "pk": 1,
+        "fields": {
+            "question_text": "What is your preferred mode of learning for in the university?",
+            "pub_date": "2023-09-06T10:44:49Z",
+            "end_date": null,
+            "available": true
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 2,
+        "fields": {
+            "question_text": "How satisfied are you with the university's current student support services?",
+            "pub_date": "2023-09-06T10:45:47Z",
+            "end_date": null,
+            "available": true
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 3,
+        "fields": {
+            "question_text": "Which extracurricular activity would you like to see expanded or introduced on campus?",
+            "pub_date": "2023-09-07T10:46:05Z",
+            "end_date": null,
+            "available": true
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 1,
+        "fields": {
+            "question": 1,
+            "choice_text": "In-person classes on campus"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 2,
+        "fields": {
+            "question": 1,
+            "choice_text": "Hybrid classes (mix of in-person and online)"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 3,
+        "fields": {
+            "question": 1,
+            "choice_text": "Fully online classes"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 4,
+        "fields": {
+            "question": 1,
+            "choice_text": "I'm undecided"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 5,
+        "fields": {
+            "question": 2,
+            "choice_text": "Very satisfied"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 6,
+        "fields": {
+            "question": 2,
+            "choice_text": "Somewhat satisfied"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 7,
+        "fields": {
+            "question": 2,
+            "choice_text": "Neutral"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 8,
+        "fields": {
+            "question": 2,
+            "choice_text": "Dissatisfied"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 9,
+        "fields": {
+            "question": 3,
+            "choice_text": "Sports and athletics"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 10,
+        "fields": {
+            "question": 3,
+            "choice_text": "Arts and cultural clubs"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 11,
+        "fields": {
+            "question": 3,
+            "choice_text": "Volunteer and community service opportunities"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 12,
+        "fields": {
+            "question": 3,
+            "choice_text": "Academic and professional development clubs"
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "choice": 1,
+            "question": 1
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "choice": 7,
+            "question": 2
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 3,
+        "fields": {
+            "user": 2,
+            "choice": 1,
+            "question": 1
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 4,
+        "fields": {
+            "user": 1,
+            "choice": 6,
+            "question": 2
+        }
+    }
+]

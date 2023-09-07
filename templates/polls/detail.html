@@ -63,7 +63,12 @@
     <fieldset>
         {% for choice in question.choice_set.all %}
             <label>
+                {% if choice == user_vote%}
+                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" checked>
+                {% else %}
                 <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                {% endif %}
+                <label for="choice{{ forloop.counter }}">
                 {{ choice.choice_text }}
             </label><br>
         {% endfor %}
