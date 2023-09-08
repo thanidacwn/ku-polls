@@ -117,12 +117,12 @@ class QuestionDetailViewTest(TestCase):
 
     def test_future_question(self):
         """ Question with a pub_date in the future in detail view
-        will return 200 OK. """
+        will return 302 redirected. """
         future_question = create_question(question_text='Future question.',
                                           days=30)
         url = reverse('polls:detail', args=(future_question.id,))
         response = self.client.get(url)
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
 
     def test_past_question(self):
         """ Question with a pub_date in the past will show in detail view. """
