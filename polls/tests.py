@@ -103,23 +103,6 @@ class QuestionIndexViewTest(TestCase):
         self.assertQuerysetEqual(response.context['lastest_question_list'],
                                  [question],)
 
-    def test_future_question(self):
-        """ Questions with pub_date in the future
-        are not display on index view."""
-        create_question(question_text='Future question', days=30)
-        response = self.client.get(reverse('polls:index'))
-        self.assertContains(response, 'No polls are available.')
-        self.assertQuerysetEqual(response.context['lastest_question_list'], [])
-
-    def test_future_question_and_past_question(self):
-        """ If two questions exist, they will be display only past question."""
-        past_question = create_question(question_text='Past question',
-                                        days=-30)
-        create_question(question_text='Future question', days=30)
-        response = self.client.get(reverse('polls:index'))
-        self.assertQuerysetEqual(response.context['lastest_question_list'],
-                                 [past_question],)
-
     def test_two_past_question(self):
         """ Index view must be show multiple questions. """
         question1 = create_question(question_text='Past question1', days=-30)

@@ -7,7 +7,8 @@ from django.contrib import admin
 class Question(models.Model):
     """ Question model """
     question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
+    # default timezone.now in pub_date
+    pub_date = models.DateTimeField('date published', default=timezone.now())
     end_date = models.DateTimeField('date ended', null=True, blank=True)
     available = models.BooleanField("poll available", default=True)
 

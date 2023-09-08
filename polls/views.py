@@ -53,7 +53,7 @@ class DetailView(generic.DetailView):
         # check if question is expired,
         # then show error message and redirect to index page.
         if not question.can_vote() or error_msg == '404':
-            messages.error(request, 'This question not allow to vote for now.')
+            messages.error(request, 'No polls are available.')
             return HttpResponseRedirect(reverse('polls:index'))
         # else
         return super().get(request, *args, **kwargs)
