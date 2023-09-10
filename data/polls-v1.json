@@ -1,1 +1,152 @@
-[]
+[
+    {
+        "model": "polls.question",
+        "pk": 1,
+        "fields": {
+            "question_text": "How much money do you spend on average per day?",
+            "pub_date": "2023-08-25T15:17:48Z",
+            "end_date": null,
+            "available": true
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 2,
+        "fields": {
+            "question_text": "What is operating system(OS) are you using of computer?",
+            "pub_date": "2023-08-25T15:17:21Z",
+            "end_date": null,
+            "available": true
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 3,
+        "fields": {
+            "question_text": "How often do you use scooter(beam) in university per week?",
+            "pub_date": "2023-08-26T04:46:05Z",
+            "end_date": null,
+            "available": true
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 1,
+        "fields": {
+            "question": 1,
+            "choice_text": "50 - 150 ฿"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 2,
+        "fields": {
+            "question": 1,
+            "choice_text": "150 - 300 ฿"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 4,
+        "fields": {
+            "question": 1,
+            "choice_text": "300 - 500 ฿"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 5,
+        "fields": {
+            "question": 1,
+            "choice_text": "500 - 700 ฿"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 6,
+        "fields": {
+            "question": 1,
+            "choice_text": "> 700 ฿"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 7,
+        "fields": {
+            "question": 2,
+            "choice_text": "LINUX"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 8,
+        "fields": {
+            "question": 2,
+            "choice_text": "Microsoft Windows"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 9,
+        "fields": {
+            "question": 2,
+            "choice_text": "APPLE Mac OS X"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 10,
+        "fields": {
+            "question": 2,
+            "choice_text": "Virtual Machine"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 11,
+        "fields": {
+            "question": 2,
+            "choice_text": "UNIX"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 12,
+        "fields": {
+            "question": 3,
+            "choice_text": "0 time/week (Never)"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 13,
+        "fields": {
+            "question": 3,
+            "choice_text": "1-2 times/week"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 14,
+        "fields": {
+            "question": 3,
+            "choice_text": "3-4 times/week"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 15,
+        "fields": {
+            "question": 3,
+            "choice_text": "5-6 times/week"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 16,
+        "fields": {
+            "question": 3,
+            "choice_text": "> 6 times/week"
+        }
+    }
+]

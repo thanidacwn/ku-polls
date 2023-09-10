@@ -87,14 +87,14 @@ class ResultsView(generic.DetailView):
 @login_required(login_url='/accounts/login')
 def vote(request, question_id):
     """ voting for polls """
-    # get question or throw error
     user = request.user
     print("current user is", user.id, "login", user.username)
     print("Real name:", user.first_name, user.last_name)
+    # get question or throw error
     question = get_object_or_404(Question, pk=question_id) 
     try:
+        # if user didn't select vote choice,
         select_choice = question.choice_set.get(pk=request.POST['choice'])
-    # if user didn't select vote choice,
     # it will render you to detail page and show error messages.
     except (KeyError, Choice.DoesNotExist):
         context = {

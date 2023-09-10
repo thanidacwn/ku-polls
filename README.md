@@ -8,8 +8,8 @@ https://cpske.github.io/ISP) course at Kasetsart University, expands upon the [D
 
 | Username  | Password  |
 |-----------|-----------|
-|   dino   | dinogreen |
-|   bhayu   | babybhayu123 |
+|   panda   | Jumbo@123 |
+|   dinosaur   | Cute@123 |
 
 
 ## Project Documents
@@ -21,3 +21,4 @@ All project documents are in the [Project Wiki](https://github.com/thanidacwn/ku
 * [Project Plan](https://github.com/thanidacwn/ku-polls/wiki/Development-plan)
 * [Iteration 1 Plan](https://github.com/thanidacwn/ku-polls/wiki/Iteration-1-Plan) and [Task Board](https://github.com/users/thanidacwn/projects/7)
 * [Iteration 2 Plan](https://github.com/thanidacwn/ku-polls/wiki/Iteration-2-Plan)
+* [Iteration 3 Plan](https://github.com/thanidacwn/ku-polls/wiki/Iteration-3-Plan)
