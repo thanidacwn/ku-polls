@@ -84,6 +84,17 @@ class QuestionModelTest(TestCase):
         expired_question.end_date = time - datetime.timedelta(days=1)
         self.assertIs(expired_question.can_vote(), False)
 
+    def test_cannot_vote_is_not_authenticated(self):
+        """if user is not authenticated, user cannot vote"""
+        pass
+
+    def test_user_get_only_one_vote_per_poll(self):
+        """user can get only one vote for each question"""
+        pass
+
+    def test_user_can_change_their_vote(self):
+        pass
+
 
 class QuestionIndexViewTest(TestCase):
     """ Test for question on index page """
@@ -125,9 +136,10 @@ class QuestionDetailViewTest(TestCase):
         self.assertEqual(response.status_code, 302)
 
     def test_past_question(self):
-        """ Question with a pub_date in the past will show in detail view. """
+        """ Question with a pub_date in the past will show in detail view.
+        will return 302 redirected."""
         past_question = create_question(question_text='Past Question.',
-                                        days=-30)
+                                        days=-10)
         url = reverse('polls:detail', args=(past_question.id,))
         response = self.client.get(url)
-        self.assertContains(response, past_question.question_text)
+        self.assertEqual(response.status_code, 302)

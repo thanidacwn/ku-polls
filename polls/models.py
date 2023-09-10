@@ -74,3 +74,6 @@ class Vote(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     choice = models.ForeignKey(Choice, on_delete=models.CASCADE)
     question = models.ForeignKey(Question, on_delete=models.CASCADE, null=True)
+
+    def __str__(self) -> str:
+        return f"{self.user.username} --> {self.question.question_text}: {self.choice.choice_text}"
