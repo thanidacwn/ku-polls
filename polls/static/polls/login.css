@@ -1,0 +1,86 @@
+/* login.css */
+body {
+    background: white url("images/background.jpg");
+}
+/* Center container */
+.center-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Overall styling for the login container */
+.login-container {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the form elements */
+.form-container {
+    width: 100%;
+}
+
+form table tr {
+    margin-bottom: 10px;
+}
+
+form table td {
+    text-align: left;
+}
+
+form input[type="text"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px; /* Increase font size for better readability */
+}
+
+/* Style for the Login button */
+form button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: rgb(255, 204, 63);
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px; /* Increase font size for better visibility */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+form button[type="submit"]:hover {
+    background-color: #969393;
+    color: white;
+}
+
+/* Style for the "Forgot password?" and "Back to polls list" links */
+p {
+    text-align: center;
+    margin-top: 15px; /* Increase the margin for better spacing */
+}
+
+p a button[type="button"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: black;
+    cursor: pointer;
+    font-size: 16px; /* Increase font size for better visibility */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+p a button[type="button"]:hover {
+    background-color: #969393; /* Light gray on hover */
+    color: white;
+}
