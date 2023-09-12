@@ -62,7 +62,7 @@ class Choice(models.Model):
     @property
     def votes(self):
         """total vote for each choice"""
-        return Vote.objects.filter(choice=self).count()
+        return self.vote_set.count()
 
     def __str__(self) -> str:
         return self.choice_text
