@@ -58,7 +58,7 @@ form button[type="submit"] {
 }
 
 form button[type="submit"]:hover {
-    background-color: #969393;
+    background-color: #24a257;
     color: white;
 }
 
@@ -81,6 +81,6 @@ p a button[type="button"] {
 }
 
 p a button[type="button"]:hover {
-    background-color: #969393; /* Light gray on hover */
+    background-color: #2273ff;
     color: white;
 }
