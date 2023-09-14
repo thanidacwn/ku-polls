@@ -8,8 +8,8 @@ from django.contrib.auth.models import User
 class Question(models.Model):
     """ Question model """
     question_text = models.CharField(max_length=200)
-    # default timezone.now in pub_date
-    pub_date = models.DateTimeField('date published', default=timezone.now())
+    # default timezone.localtime in pub_date
+    pub_date = models.DateTimeField('date published', default=timezone.localtime)
     end_date = models.DateTimeField('date ended', null=True, blank=True)
     available = models.BooleanField("poll available", default=True)
 

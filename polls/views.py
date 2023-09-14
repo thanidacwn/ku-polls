@@ -89,12 +89,11 @@ def vote(request, question_id):
     """ voting for polls """
     user = request.user
     print("current user is", user.id, "login", user.username)
-    print("Real name:", user.first_name, user.last_name)
     # get question or throw error
     question = get_object_or_404(Question, pk=question_id)
-    if not question.can_vote():
-        messages.error(request, f"This poll is not available to vote.")
-        return HttpResponseRedirect('polls:index')
+    # if not question.can_vote():
+    #     messages.error(request, "This poll is not available to vote.")
+    #     return HttpResponseRedirect('polls:index')
     try:
         # if user didn't select vote choice,
         select_choice = question.choice_set.get(pk=request.POST['choice'])
@@ -113,11 +112,10 @@ def vote(request, question_id):
                 user_vote.choice = select_choice
                 user_vote.save()
             except Vote.DoesNotExist:
-                create_vote = Vote.objects.create(
+                Vote.objects.create(
                                 user=user,
                                 choice=select_choice,
-                                question=select_choice.question)
-                create_vote.save()
+                                question=select_choice.question).save()
         else:
             # if question cannot vote(expired),
             # show error message and redirect to index page.
