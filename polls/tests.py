@@ -2,20 +2,25 @@ import datetime
 from django.test import TestCase
 from django.utils import timezone
 from django.urls import reverse
-from .models import Question
+from .models import Question, Vote
+from django.contrib.auth.models import User
 
 
 def create_question(question_text, days=0, hours=0,  minutes=0, seconds=0):
     """
     Create a question with the given `question_text` and published the
-    given number of `days` offset to now (negative for questions published
-    in the past, positive for questions that have yet to be published).
+    given number of `days` offset to now.
     """
     time = timezone.now() + datetime.timedelta(days=days,
                                                hours=hours,
                                                minutes=minutes,
                                                seconds=seconds)
     return Question.objects.create(question_text=question_text, pub_date=time)
+
+
+# def create_choice(question: Question, choice_text):
+#     """Create a choice for a Question instance"""
+#     return question.choice_set.create(choice_text=choice_text)
 
 
 class QuestionModelTest(TestCase):
@@ -125,9 +130,80 @@ class QuestionDetailViewTest(TestCase):
         self.assertEqual(response.status_code, 302)
 
     def test_past_question(self):
-        """ Question with a pub_date in the past will show in detail view. """
+        """ Question with a pub_date in the past will show in detail view.
+        will return 302 redirected."""
         past_question = create_question(question_text='Past Question.',
-                                        days=-30)
+                                        days=-10)
         url = reverse('polls:detail', args=(past_question.id,))
         response = self.client.get(url)
-        self.assertContains(response, past_question.question_text)
+        self.assertEqual(response.status_code, 302)
+
+
+class VoteViewTest(TestCase):
+    """Test for vote view"""
+
+    def setUp(self) -> None:
+        self.user = User.objects.create_user(username="demo_test")
+        self.user.set_password("test123")
+        self.user.save()
+        self.client.login(username="demo_test", password="test123")
+
+    def last_vote(self, user, question):
+        return Vote.objects.filter(
+            user=user, choice__in=question.choice_set.all()
+        )
+
+    def post_choice(self, user, choice):
+        url = reverse("polls:vote", args=(choice.question.id,))
+        post_context = {"choice": choice.id}
+        self.client.post(url, post_context)
+
+    def test_vote_count(self):
+        question = create_question("")
+        choice = question.choice_set.create(choice_text='choice123')
+        Vote.objects.create(question=question, choice=choice, user=self.user)
+        self.assertEqual(choice.votes, 1)
+
+    def test_can_vote_is_authenticated(self):
+        """if user is already authenticated, user can vote,
+        then status code: 202"""
+        question = create_question("")
+        url = reverse("polls:vote", args=(question.id,))
+        selected_question = {"question": question.id}
+        response = self.client.post(url, selected_question)
+        self.assertEqual(response.status_code, 200)
+
+    def test_user_get_only_one_vote_per_poll(self):
+        """user can get only one vote for each question"""
+        question = create_question(question_text="test")
+        prev_choice = question.choice_set.create(choice_text="apple")
+        recent_choice = question.choice_set.create(choice_text="banana")
+
+        url1 = reverse("polls:vote", args=(question.id,))
+        self.client.post(url1, {"choice": prev_choice.id})
+        self.assertEqual(question.vote_set.get(user=self.user).choice, prev_choice)
+        self.assertEqual(Vote.objects.all().count(), 1)
+
+        url2 = reverse("polls:vote", args=(question.id,))
+        self.client.post(url2, {"choice": recent_choice.id})
+        self.assertEqual(question.vote_set.get(user=self.user).choice, recent_choice)
+        self.assertEqual(Vote.objects.all().count(), 1)
+
+    def test_user_can_change_their_vote(self):
+        """if users already login, users can change their vote."""
+        self.assertTrue(self.client)
+
+        question = create_question("test")
+        prev_choice = question.choice_set.create(choice_text="apple")
+        recent_choice = question.choice_set.create(choice_text="banana")
+        question.save()
+
+        self.post_choice(self.user, prev_choice)
+        self.assertEqual(self.last_vote(self.user, question).count(), 1)
+        self.assertEqual(self.last_vote(self.user, question).get().choice, prev_choice)
+
+        self.post_choice(self.user, recent_choice)
+        # check vote is already count
+        self.assertEqual(self.last_vote(self.user, question).count(), 1)
+        # check vote is lasted vote
+        self.assertEqual(self.last_vote(self.user, question).get().choice, recent_choice)

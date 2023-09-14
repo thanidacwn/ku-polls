@@ -1,0 +1,24 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'polls/login.css' %}">
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <div class="center-container">
+        <h2>Login</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-container">
+                {{ form.as_table }}
+                <p><button type="submit">Login</button></p>
+            </div>
+            <!-- if your app redirects user to login before accessing some pages, then next contains return URL -->
+            <input type="hidden" name="next" value="{{next}}" />
+        </form>
+        {# If you have a password_reset template, then add here #}
+        <p><a href="{% url 'password_reset' %}"><button type="button">Forgot password?</button></a></p>
+        <p><a href="{% url 'polls:index' %}"><button type="button">Back to polls list</button></a></p>
+    </div>
+</body>
+</html>

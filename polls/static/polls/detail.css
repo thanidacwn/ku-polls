@@ -1,0 +1,61 @@
+/* detail.css */
+
+body {
+    background: white url("images/background.jpg");
+}
+
+/* Center the form on the page */
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+label {
+    display: inline-block; /* Display the labels on the same line */
+    margin-bottom: 10px;
+    margin-right: 10px; /* Add spacing between radio buttons and labels */
+}
+
+input[type="radio"] {
+    margin-right: 5px; /* Adjust the spacing between radio buttons */
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+button[type="submit"] {
+    background-color: #28a745;
+}
+
+button[type="submit"]:hover {
+    background-color: #ddd;
+    color: black;
+}

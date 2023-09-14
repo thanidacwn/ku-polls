@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os.path
 from pathlib import Path
 from decouple import config, Csv
 
@@ -30,6 +31,8 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS',
                        default='localhost,127.0.0.1',
                        cast=Csv())
 
+LOGIN_REDIRECT_URL = '/polls/'    # show list of polls
+LOGOUT_REDIRECT_URL = '/polls/'         # after logout, go where?
 
 # Application definition
 
@@ -51,6 +54,15 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    # SessionMiddleware manages sessions spanning multiple requests
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    # AuthenticationMiddleware associates a user with session and requests
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+]
+
+AUTHENTICATION_BACKENDS = [
+    # username/password authentication
+    'django.contrib.auth.backends.ModelBackend',
 ]
 
 ROOT_URLCONF = "mysite.urls"
@@ -58,7 +70,7 @@ ROOT_URLCONF = "mysite.urls"
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

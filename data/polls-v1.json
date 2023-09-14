@@ -1,167 +1,467 @@
 [
-{
-  "model": "polls.question",
-  "pk": 1,
-  "fields": {
-    "question_text": "How much money do you spend on average per day?",
-    "pub_date": "2023-08-25T15:17:48Z",
-    "end_date": null,
-    "available": true
-  }
-},
-{
-  "model": "polls.question",
-  "pk": 2,
-  "fields": {
-    "question_text": "What is operating system(OS) are you using of computer?",
-    "pub_date": "2023-08-25T15:17:21Z",
-    "end_date": null,
-    "available": true
-  }
-},
-{
-  "model": "polls.question",
-  "pk": 3,
-  "fields": {
-    "question_text": "How often do you use scooter(beam) in university per week?",
-    "pub_date": "2023-08-26T04:46:05Z",
-    "end_date": null,
-    "available": true
-  }
-},
-{
-  "model": "polls.choice",
-  "pk": 1,
-  "fields": {
-    "question": 1,
-    "choice_text": "50 - 150 ฿",
-    "votes": 2
-  }
-},
-{
-  "model": "polls.choice",
-  "pk": 2,
-  "fields": {
-    "question": 1,
-    "choice_text": "150 - 300 ฿",
-    "votes": 2
-  }
-},
-{
-  "model": "polls.choice",
-  "pk": 4,
-  "fields": {
-    "question": 1,
-    "choice_text": "300 - 500 ฿",
-    "votes": 1
-  }
-},
-{
-  "model": "polls.choice",
-  "pk": 5,
-  "fields": {
-    "question": 1,
-    "choice_text": "500 - 700 ฿",
-    "votes": 0
-  }
-},
-{
-  "model": "polls.choice",
-  "pk": 6,
-  "fields": {
-    "question": 1,
-    "choice_text": "> 700 ฿",
-    "votes": 0
-  }
-},
-{
-  "model": "polls.choice",
-  "pk": 7,
-  "fields": {
-    "question": 2,
-    "choice_text": "LINUX",
-    "votes": 1
-  }
-},
-{
-  "model": "polls.choice",
-  "pk": 8,
-  "fields": {
-    "question": 2,
-    "choice_text": "Microsoft Windows",
-    "votes": 1
-  }
-},
-{
-  "model": "polls.choice",
-  "pk": 9,
-  "fields": {
-    "question": 2,
-    "choice_text": "APPLE Mac OS X",
-    "votes": 4
-  }
-},
-{
-  "model": "polls.choice",
-  "pk": 10,
-  "fields": {
-    "question": 2,
-    "choice_text": "Virtual Machine",
-    "votes": 0
-  }
-},
-{
-  "model": "polls.choice",
-  "pk": 11,
-  "fields": {
-    "question": 2,
-    "choice_text": "UNIX",
-    "votes": 1
-  }
-},
-{
-  "model": "polls.choice",
-  "pk": 12,
-  "fields": {
-    "question": 3,
-    "choice_text": "0 time/week (Never)",
-    "votes": 0
-  }
-},
-{
-  "model": "polls.choice",
-  "pk": 13,
-  "fields": {
-    "question": 3,
-    "choice_text": "1-2 times/week",
-    "votes": 1
-  }
-},
-{
-  "model": "polls.choice",
-  "pk": 14,
-  "fields": {
-    "question": 3,
-    "choice_text": "3-4 times/week",
-    "votes": 0
-  }
-},
-{
-  "model": "polls.choice",
-  "pk": 15,
-  "fields": {
-    "question": 3,
-    "choice_text": "5-6 times/week",
-    "votes": 1
-  }
-},
-{
-  "model": "polls.choice",
-  "pk": 16,
-  "fields": {
-    "question": 3,
-    "choice_text": "> 6 times/week",
-    "votes": 1
-  }
-}
+    {
+        "model": "polls.question",
+        "pk": 1,
+        "fields": {
+            "question_text": "How much money do you spend on average per day?",
+            "pub_date": "2023-08-25T15:17:48Z",
+            "end_date": null,
+            "available": true
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 2,
+        "fields": {
+            "question_text": "What is operating system(OS) are you using of computer?",
+            "pub_date": "2023-08-25T15:17:21Z",
+            "end_date": null,
+            "available": true
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 3,
+        "fields": {
+            "question_text": "How often do you use scooter(beam) in university per week?",
+            "pub_date": "2023-08-26T04:46:05Z",
+            "end_date": null,
+            "available": true
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 4,
+        "fields": {
+            "question_text": "How often do you use the faculty of engineering library?",
+            "pub_date": "2023-09-14T03:10:49Z",
+            "end_date": null,
+            "available": true
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 5,
+        "fields": {
+            "question_text": "What's the most common way for you to get to university?",
+            "pub_date": "2023-09-14T03:14:35Z",
+            "end_date": null,
+            "available": true
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 1,
+        "fields": {
+            "question": 1,
+            "choice_text": "50 - 150 ฿"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 2,
+        "fields": {
+            "question": 1,
+            "choice_text": "150 - 300 ฿"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 4,
+        "fields": {
+            "question": 1,
+            "choice_text": "300 - 500 ฿"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 5,
+        "fields": {
+            "question": 1,
+            "choice_text": "500 - 700 ฿"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 6,
+        "fields": {
+            "question": 1,
+            "choice_text": "> 700 ฿"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 7,
+        "fields": {
+            "question": 2,
+            "choice_text": "LINUX"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 8,
+        "fields": {
+            "question": 2,
+            "choice_text": "Microsoft Windows"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 9,
+        "fields": {
+            "question": 2,
+            "choice_text": "APPLE Mac OS X"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 10,
+        "fields": {
+            "question": 2,
+            "choice_text": "Virtual Machine"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 11,
+        "fields": {
+            "question": 2,
+            "choice_text": "UNIX"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 12,
+        "fields": {
+            "question": 3,
+            "choice_text": "0 time/week (Never)"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 13,
+        "fields": {
+            "question": 3,
+            "choice_text": "1-2 times/week"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 14,
+        "fields": {
+            "question": 3,
+            "choice_text": "3-4 times/week"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 15,
+        "fields": {
+            "question": 3,
+            "choice_text": "5-6 times/week"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 16,
+        "fields": {
+            "question": 3,
+            "choice_text": "> 6 times/week"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 17,
+        "fields": {
+            "question": 4,
+            "choice_text": "0 time/week (Never)"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 18,
+        "fields": {
+            "question": 4,
+            "choice_text": "1-2 times/week"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 19,
+        "fields": {
+            "question": 4,
+            "choice_text": "3-4 times/week"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 20,
+        "fields": {
+            "question": 4,
+            "choice_text": "5-6 times/week"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 21,
+        "fields": {
+            "question": 4,
+            "choice_text": "> 6 times/week"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 22,
+        "fields": {
+            "question": 5,
+            "choice_text": "Private car"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 23,
+        "fields": {
+            "question": 5,
+            "choice_text": "Public Transit"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 24,
+        "fields": {
+            "question": 5,
+            "choice_text": "Bicycle"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 25,
+        "fields": {
+            "question": 5,
+            "choice_text": "Motorcycle"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 26,
+        "fields": {
+            "question": 5,
+            "choice_text": "Walking"
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 27,
+        "fields": {
+            "question": 5,
+            "choice_text": "Taxis"
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "choice": 14,
+            "question": 3
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 2,
+        "fields": {
+            "user": 1,
+            "choice": 2,
+            "question": 1
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 3,
+        "fields": {
+            "user": 1,
+            "choice": 9,
+            "question": 2
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 4,
+        "fields": {
+            "user": 2,
+            "choice": 13,
+            "question": 3
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 5,
+        "fields": {
+            "user": 2,
+            "choice": 5,
+            "question": 1
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 6,
+        "fields": {
+            "user": 2,
+            "choice": 7,
+            "question": 2
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 7,
+        "fields": {
+            "user": 1,
+            "choice": 22,
+            "question": 5
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 8,
+        "fields": {
+            "user": 1,
+            "choice": 18,
+            "question": 4
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 9,
+        "fields": {
+            "user": 4,
+            "choice": 23,
+            "question": 5
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 10,
+        "fields": {
+            "user": 4,
+            "choice": 18,
+            "question": 4
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 11,
+        "fields": {
+            "user": 4,
+            "choice": 12,
+            "question": 3
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 12,
+        "fields": {
+            "user": 4,
+            "choice": 1,
+            "question": 1
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 13,
+        "fields": {
+            "user": 4,
+            "choice": 9,
+            "question": 2
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 14,
+        "fields": {
+            "user": 3,
+            "choice": 22,
+            "question": 5
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 15,
+        "fields": {
+            "user": 3,
+            "choice": 19,
+            "question": 4
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 16,
+        "fields": {
+            "user": 3,
+            "choice": 13,
+            "question": 3
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 17,
+        "fields": {
+            "user": 3,
+            "choice": 2,
+            "question": 1
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 18,
+        "fields": {
+            "user": 3,
+            "choice": 9,
+            "question": 2
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 19,
+        "fields": {
+            "user": 5,
+            "choice": 25,
+            "question": 5
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 20,
+        "fields": {
+            "user": 5,
+            "choice": 17,
+            "question": 4
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 21,
+        "fields": {
+            "user": 5,
+            "choice": 12,
+            "question": 3
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 22,
+        "fields": {
+            "user": 5,
+            "choice": 4,
+            "question": 1
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 23,
+        "fields": {
+            "user": 5,
+            "choice": 8,
+            "question": 2
+        }
+    }
 ]

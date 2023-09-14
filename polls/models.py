@@ -2,13 +2,14 @@ import datetime
 from django.db import models
 from django.utils import timezone
 from django.contrib import admin
+from django.contrib.auth.models import User
 
 
 class Question(models.Model):
     """ Question model """
     question_text = models.CharField(max_length=200)
-    # default timezone.now in pub_date
-    pub_date = models.DateTimeField('date published', default=timezone.now())
+    # default timezone.localtime in pub_date
+    pub_date = models.DateTimeField('date published', default=timezone.localtime)
     end_date = models.DateTimeField('date ended', null=True, blank=True)
     available = models.BooleanField("poll available", default=True)
 
@@ -57,7 +58,21 @@ class Choice(models.Model):
     """ Choice model """
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
+
+    @property
+    def votes(self):
+        """total vote for each choice"""
+        return self.vote_set.count()
 
     def __str__(self) -> str:
         return self.choice_text
+
+
+class Vote(models.Model):
+    """ Voting models """
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    choice = models.ForeignKey(Choice, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE, null=True)
+
+    def __str__(self) -> str:
+        return f"{self.user.username} --> {self.question.question_text}: {self.choice.choice_text}"
