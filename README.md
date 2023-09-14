@@ -10,6 +10,8 @@ https://cpske.github.io/ISP) course at Kasetsart University, expands upon the [D
 |-----------|-----------|
 |   panda   | Jumbo@123 |
 |   dinosaur   | Cute@123 |
+|   bhayu   | Saifha@123 |
+|   coconut   | Juice@123 |
 
 
 ## Project Documents
