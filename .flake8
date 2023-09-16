@@ -1,0 +1,4 @@
+[flake8]
+# ignore env folder
+exclude=*/migrations/*, env/*, .git/*, .venv/*, .vscode/*, .idea/*, .pytest_cache/*, .mypy_cache/*, .gitignore, .flake8, .coverage, manage.py, db.sqlite3, .env, .env.example, .env.dev, .env.prod, .env.test, .env.local, .env.*.local, .vscode, .vscode/*
+max-line-length = 120

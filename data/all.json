@@ -256,5 +256,212 @@
             "question": 5,
             "choice_text": "Taxis"
         }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "choice": 14,
+            "question": 3
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 2,
+        "fields": {
+            "user": 1,
+            "choice": 2,
+            "question": 1
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 3,
+        "fields": {
+            "user": 1,
+            "choice": 9,
+            "question": 2
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 4,
+        "fields": {
+            "user": 2,
+            "choice": 13,
+            "question": 3
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 5,
+        "fields": {
+            "user": 2,
+            "choice": 5,
+            "question": 1
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 6,
+        "fields": {
+            "user": 2,
+            "choice": 7,
+            "question": 2
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 7,
+        "fields": {
+            "user": 1,
+            "choice": 22,
+            "question": 5
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 8,
+        "fields": {
+            "user": 1,
+            "choice": 18,
+            "question": 4
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 9,
+        "fields": {
+            "user": 4,
+            "choice": 27,
+            "question": 5
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 10,
+        "fields": {
+            "user": 4,
+            "choice": 18,
+            "question": 4
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 11,
+        "fields": {
+            "user": 4,
+            "choice": 12,
+            "question": 3
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 12,
+        "fields": {
+            "user": 4,
+            "choice": 1,
+            "question": 1
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 13,
+        "fields": {
+            "user": 4,
+            "choice": 9,
+            "question": 2
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 14,
+        "fields": {
+            "user": 3,
+            "choice": 22,
+            "question": 5
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 15,
+        "fields": {
+            "user": 3,
+            "choice": 19,
+            "question": 4
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 16,
+        "fields": {
+            "user": 3,
+            "choice": 13,
+            "question": 3
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 17,
+        "fields": {
+            "user": 3,
+            "choice": 2,
+            "question": 1
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 18,
+        "fields": {
+            "user": 3,
+            "choice": 9,
+            "question": 2
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 19,
+        "fields": {
+            "user": 5,
+            "choice": 25,
+            "question": 5
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 20,
+        "fields": {
+            "user": 5,
+            "choice": 17,
+            "question": 4
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 21,
+        "fields": {
+            "user": 5,
+            "choice": 12,
+            "question": 3
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 22,
+        "fields": {
+            "user": 5,
+            "choice": 4,
+            "question": 1
+        }
+    },
+    {
+        "model": "polls.vote",
+        "pk": 23,
+        "fields": {
+            "user": 5,
+            "choice": 8,
+            "question": 2
+        }
     }
 ]
