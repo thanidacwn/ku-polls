@@ -4,9 +4,9 @@
 This application, developed during the  [Individual Software Process](
 https://cpske.github.io/ISP) course at Kasetsart University, expands upon the [Django Tutorial project](https://docs.djangoproject.com/en/4.1/intro/tutorial01/) project to facilitate online polls and surveys while incorporating extra features.
 
-### How to install and configuration
+## How to install and configuration
 - [Installation and configuration](https://github.com/thanidacwn/ku-polls/blob/iteration4/installation.md)
-### How to Run
+## How to Run
 1.Start the virtual environment
 ```sh
 source env/bin/activate
