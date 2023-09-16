@@ -1,4 +1,4 @@
-### How to Install
+#### How to Install
 
 First, make sure that you have [python](https://www.python.org/downloads/) in your computer
 
@@ -7,13 +7,13 @@ First, make sure that you have [python](https://www.python.org/downloads/) in yo
 ```sh
 git clone https://github.com/thanidacwn/ku-polls.git ku-polls
 ```
-
 go to project directory
 
 ```sh
 cd ku-polls
 ```
 
-Next, you have to create file name `.env` to configuration **note that you may get your secretkeys [here](https://djecrety.ir)**
-
-`.env` file template looks like [sample.env](sample.env) you can modify value and copy it into `.env`
+2.Create a virtual env directory named "env"
+```sh
+python3 -m venv  env
+```
