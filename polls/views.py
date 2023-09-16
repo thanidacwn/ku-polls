@@ -91,9 +91,6 @@ def vote(request, question_id):
     print("current user is", user.id, "login", user.username)
     # get question or throw error
     question = get_object_or_404(Question, pk=question_id)
-    # if not question.can_vote():
-    #     messages.error(request, "This poll is not available to vote.")
-    #     return HttpResponseRedirect('polls:index')
     try:
         # if user didn't select vote choice,
         select_choice = question.choice_set.get(pk=request.POST['choice'])
