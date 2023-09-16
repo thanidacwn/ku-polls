@@ -51,7 +51,7 @@ Then, go to `http://127.0.0.1:8000/` or `localhost:8000/` for application.
 |   bhayu   | Saifha@123 |
 |   coconut   | Juice@123 |
 
-5.Exit the virtualenv
+8.Exit the virtualenv
 ```sh
 deactivate
 ```
