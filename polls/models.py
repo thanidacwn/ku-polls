@@ -1,3 +1,4 @@
+"""Polls models."""
 import datetime
 from django.db import models
 from django.utils import timezone
@@ -6,7 +7,8 @@ from django.contrib.auth.models import User
 
 
 class Question(models.Model):
-    """ Question model """
+    """Question model."""
+
     question_text = models.CharField(max_length=200)
     # default timezone.localtime in pub_date
     pub_date = models.DateTimeField('date published', default=timezone.localtime)
@@ -19,6 +21,7 @@ class Question(models.Model):
         description='Published recently?',
     )
     def __str__(self) -> str:
+        """Return question text."""
         return self.question_text
 
     def was_published_recently(self):
@@ -55,24 +58,28 @@ class Question(models.Model):
 
 
 class Choice(models.Model):
-    """ Choice model """
+    """Choice model."""
+
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
 
     @property
     def votes(self):
-        """total vote for each choice"""
+        """Total vote for each choice."""
         return self.vote_set.count()
 
     def __str__(self) -> str:
+        """Return choice text."""
         return self.choice_text
 
 
 class Vote(models.Model):
-    """ Voting models """
+    """Voting models."""
+
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     choice = models.ForeignKey(Choice, on_delete=models.CASCADE)
     question = models.ForeignKey(Question, on_delete=models.CASCADE, null=True)
 
     def __str__(self) -> str:
+        """Return user, question, choice."""
         return f"{self.user.username} --> {self.question.question_text}: {self.choice.choice_text}"

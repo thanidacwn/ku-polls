@@ -1,3 +1,4 @@
+"""Import the path function from django."""
 from django.urls import path
 from . import views
 

@@ -1,5 +1,6 @@
+"""Views for polls app."""
 from django.shortcuts import render
-from django.http import HttpResponseRedirect, Http404
+from django.http import HttpResponseRedirect
 from .models import Question, Choice, Vote
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
@@ -11,34 +12,35 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 def get_queryset(self):
-    """show the last five question that not including those set
-    to be published in the future"""
+    """Show the last five question that not including those set to be published in the future."""
     return Question.objects.filter(
         pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
 
 
 class IndexView(generic.ListView):
-    """ View for index page """
+    """View for index page."""
+
     template_name = 'polls/index.html'
     context_object_name = 'lastest_question_list'
 
     def get_queryset(self):
-        """ Display the last five question in system"""
+        """Display the last five question in system."""
         return Question.objects.filter(
             pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
 
 
 class DetailView(LoginRequiredMixin, generic.DetailView):
-    """ View for detail page """
+    """View for detail page."""
+
     model = Question
     template_name = 'polls/detail.html'
 
     def get_queryset(self):
-        """ Not! include questions that are not published yet."""
+        """Not! include questions that are not published yet."""
         return Question.objects.filter(pub_date__lte=timezone.now())
 
-    def get(self, request, *args, **kwargs):
-        """ Overide get method, check if question can be vote.
+    def get(self, request, pk):
+        """Overide get method, check if question can be vote.
 
         Arguments:
             request {HTTP_REQUEST}
@@ -46,15 +48,15 @@ class DetailView(LoginRequiredMixin, generic.DetailView):
         Returns:
             httpResponse
         """
-        error_msg = None
         user = request.user
         # get question or throw error
         try:
-            question = get_object_or_404(Question, pk=kwargs['pk'])
-        except Http404:
-            error_msg = '404'
+            question = Question.objects.get(pk=pk)
+        except Question.DoesNotExist:
+            messages.error(request, 'This question does not exist.')
+            return HttpResponseRedirect(reverse('polls:index'))
         # check if question is expired, then show error message and redirect to index page.
-        if not question.can_vote() or error_msg == '404':
+        if not question.can_vote():
             messages.error(request, 'This question not allow to vote for now.')
             return HttpResponseRedirect(reverse('polls:index'))
         # else
@@ -65,7 +67,7 @@ class DetailView(LoginRequiredMixin, generic.DetailView):
         except Vote.DoesNotExist:
             # render to parent class (detail page)
             # render to error message 'You did not select a choice or invalid choice.'
-            return super().get(request, *args, **kwargs)
+            return super().get(request, pk)
         # go to detail page
         context = {
             'question': question,
@@ -75,18 +77,33 @@ class DetailView(LoginRequiredMixin, generic.DetailView):
 
 
 class ResultsView(generic.DetailView):
-    """ View for results page """
+    """View for results page."""
+
     model = Question
     template_name = 'polls/results.html'
 
     def get_queryset(self):
-        """ show the total votes for each choice. """
+        """Show the total votes for each choice."""
         return Question.objects.filter(pub_date__lte=timezone.now())
+
+    def get(self, request, pk):
+        """Return index page, if question does not exist."""
+        try:
+            question = Question.objects.get(pk=pk)
+        except Question.DoesNotExist:
+            messages.error(request, 'This question does not exist.')
+            return HttpResponseRedirect(reverse('polls:index'))
+        # if question is expired, then show error message and redirect to index page.
+        if not question.can_vote():
+            messages.error(request, 'This question not allow to vote for now.')
+            return HttpResponseRedirect(reverse('polls:index'))
+        # else
+        return super().get(request, pk)
 
 
 @login_required(login_url='/accounts/login')
 def vote(request, question_id):
-    """ voting for polls """
+    """Voting for polls."""
     user = request.user
     print("current user is", user.id, "login", user.username)
     # get question or throw error
@@ -123,5 +140,7 @@ def vote(request, question_id):
 
 
 class EyesOnlyView(LoginRequiredMixin, generic.ListView):
+    """Class login view."""
+
     # this is the default. Same default as in auth_required decorator
     login_url = '/accounts/login/'
