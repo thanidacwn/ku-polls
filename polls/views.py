@@ -1,6 +1,6 @@
-from typing import Any
+"""Views for polls app."""
 from django.shortcuts import render
-from django.http import HttpRequest, HttpResponse, HttpResponseRedirect, Http404
+from django.http import HttpResponseRedirect
 from .models import Question, Choice, Vote
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
@@ -12,19 +12,19 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 def get_queryset(self):
-    """show the last five question that not including those set
-    to be published in the future"""
+    """Show the last five question that not including those set to be published in the future."""
     return Question.objects.filter(
         pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
 
 
 class IndexView(generic.ListView):
-    """ View for index page """
+    """View for index page."""
+
     template_name = 'polls/index.html'
     context_object_name = 'lastest_question_list'
 
     def get_queryset(self):
-        """ Display the last five question in system"""
+        """Display the last five question in system."""
         return Question.objects.filter(
             pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
 
@@ -85,7 +85,7 @@ class ResultsView(generic.DetailView):
     def get_queryset(self):
         """Show the total votes for each choice."""
         return Question.objects.filter(pub_date__lte=timezone.now())
-    
+
     def get(self, request, pk):
         """Return index page, if question does not exist."""
         try:
